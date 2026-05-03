@@ -2,158 +2,239 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Sorry Sister 🧸💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I'm Really Sorry 🥺💗</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  background: linear-gradient(135deg, #ffd6e7, #fff0c9);
-  font-family: 'Quicksand', sans-serif;
-  text-align: center;
-  overflow: hidden;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+  font-family:'Quicksand',sans-serif;
 }
 
-/* teddy image */
-.teddy {
-  width: 180px;
-  animation: float 3s ease-in-out infinite;
+body{
+  background: linear-gradient(-45deg,#ffd6e8,#e6ccff,#d9f0ff,#fff0f5);
+  background-size:400% 400%;
+  animation: gradientBG 12s ease infinite;
+  overflow-x:hidden;
+  text-align:center;
+  color:#444;
 }
 
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+@keyframes gradientBG{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
 }
 
-h1 {
-  font-family: 'Pacifico', cursive;
-  color: #ff4d88;
-  font-size: 40px;
+.container{
+  padding:70px 20px;
+  max-width:800px;
+  margin:auto;
+  animation:fadeIn 2s ease;
 }
 
-p {
-  font-size: 18px;
-  color: #444;
-  min-height: 40px;
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
 }
 
-.container {
-  margin-top: 60px;
+h1{
+  font-family:'Pacifico',cursive;
+  font-size:2.8rem;
+  color:#ff66a3;
+  text-shadow:0 0 20px rgba(255,105,180,0.5);
 }
 
-/* buttons */
-button {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 30px;
-  margin: 10px;
-  font-size: 16px;
-  cursor: pointer;
+.subtext{
+  margin:15px 0 30px;
+  font-size:1.2rem;
 }
 
-#yes { background: #ff85a2; color: white; }
-#gift { background: #ffd166; }
-#no {
-  background: #999;
-  color: white;
-  position: absolute;
+.main-img{
+  width:230px;
+  border-radius:25px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+  margin-bottom:30px;
+  transition:0.4s;
 }
 
-/* floating hearts */
-.heart {
-  position: absolute;
-  width: 20px;
-  opacity: 0.7;
-  animation: rise 5s linear infinite;
+.main-img:hover{
+  transform:scale(1.05);
 }
 
-@keyframes rise {
-  from { transform: translateY(100vh); }
-  to { transform: translateY(-10vh); }
+.message{
+  background:rgba(255,255,255,0.75);
+  padding:30px;
+  border-radius:30px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom:40px;
+  line-height:1.7;
+  font-size:1.1rem;
+}
+
+.section-title{
+  font-family:'Pacifico',cursive;
+  font-size:2rem;
+  color:#cc66ff;
+  margin-bottom:20px;
+}
+
+.points{
+  background:rgba(255,255,255,0.75);
+  padding:25px;
+  border-radius:25px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  text-align:left;
+  line-height:1.8;
+}
+
+button{
+  margin-top:45px;
+  padding:18px 45px;
+  font-size:1.3rem;
+  border:none;
+  border-radius:50px;
+  background:linear-gradient(45deg,#ff99cc,#cc99ff);
+  color:white;
+  cursor:pointer;
+  box-shadow:0 8px 25px rgba(0,0,0,0.15);
+  transition:0.4s;
+}
+
+button:hover{
+  transform:scale(1.15);
+  box-shadow:0 0 25px pink;
+}
+
+/* Popup */
+.popup, .overlay{
+  display:none;
+}
+
+.overlay{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(5px);
+}
+
+.popup{
+  position:fixed;
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+  background:white;
+  padding:35px;
+  border-radius:25px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.2);
+  z-index:1000;
+}
+
+.popup h2{
+  color:#ff66a3;
+}
+
+/* Floating stickers */
+.sticker{
+  position:fixed;
+  width:90px;
+  opacity:0.9;
+  animation:floatSticker linear infinite;
+}
+
+@keyframes floatSticker{
+  0%{transform:translateY(110vh) rotate(0deg);}
+  100%{transform:translateY(-120vh) rotate(360deg);}
+}
+
+footer{
+  margin:60px 0 20px;
+  font-size:0.9rem;
+  opacity:0.7;
+}
+
+@media(max-width:600px){
+  h1{font-size:2.2rem;}
+  .main-img{width:180px;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container" id="main">
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9c9e8b41b4.mp3?filename=romantic-background-112191.mp3" type="audio/mp3">
+</audio>
 
-  <img class="teddy" src="https://cdn-icons-png.flaticon.com/512/616/616408.png">
+<!-- Floating Stickers -->
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=200&q=80"
+class="sticker" style="left:10%; animation-duration:22s;">
 
-  <h1>Sorry Sister 🧸💖</h1>
-  <p id="text"></p>
+<img src="https://images.unsplash.com/photo-1601758064228-5f5c1b0d1b8d?auto=format&fit=crop&w=200&q=80"
+class="sticker" style="left:80%; animation-duration:26s;">
 
-  <button id="yes" onclick="forgive()">Forgive me 🥺</button>
-  <button id="gift" onclick="openGift()">Open Gift 🎁</button>
-  <button id="no" onmouseover="run()">No 😤</button>
+<img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=200&q=80"
+class="sticker" style="left:50%; animation-duration:30s;">
+
+<div class="container">
+
+<h1>I'm Really Sorry 🥺💗</h1>
+<p class="subtext">I didn’t mean to hurt you… please read this once</p>
+
+<img src="https://images.unsplash.com/photo-1595433562696-44c8b3a8eae6?auto=format&fit=crop&w=400&q=80"
+class="main-img">
+
+<div class="message">
+I know I messed up and I’m really sorry.  
+I didn’t mean to hurt you.  
+You matter a lot to me and I hate seeing you upset because of me.  
+
+When you’re not talking to me properly, everything feels incomplete.  
+Please don’t stay angry… I miss us.  
+I promise I’ll try to be better, for you, for us.  
+
+Just give me one chance to make it right 🥺💗
+</div>
+
+<h2 class="section-title">Why You Are Important To Me 💞</h2>
+
+<div class="points">
+• You make my days better without even trying <br>
+• Talking to you feels like comfort <br>
+• You are really special to me <br>
+• I don’t like anything when you’re upset with me <br>
+</div>
+
+<button onclick="showPopup()">Forgive Me? 🧸</button>
 
 </div>
 
+<footer>
+Made with love, only for you 💗
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<div class="popup" id="popup">
+<h2>Yayyy 🥺💖</h2>
+<p>Thank you for forgiving me, you’re the best!</p>
+</div>
+
 <script>
-
-/* typewriter text */
-let msg = "I messed up... and now your pookie teddy is sad 🧸💔";
-let i = 0;
-
-function type() {
-  if (i < msg.length) {
-    document.getElementById("text").innerHTML += msg.charAt(i);
-    i++;
-    setTimeout(type, 50);
-  }
-}
-type();
-
-/* running NO button */
-function run() {
-  let btn = document.getElementById("no");
-  btn.style.top = Math.random()*window.innerHeight + "px";
-  btn.style.left = Math.random()*window.innerWidth + "px";
+function showPopup(){
+  document.getElementById("popup").style.display="block";
+  document.getElementById("overlay").style.display="block";
 }
 
-/* gift twist */
-function openGift() {
-  document.body.innerHTML = `
-    <div style="margin-top:120px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png" width="150">
-      <h1 style="color:#ff4d88;font-family:Pacifico;">Surprise 🧸💖</h1>
-      <p>You are the most special sister ever 😭💕</p>
-      <p>I really didn’t mean to hurt you...</p>
-      <button onclick="back()">Go Back 🥺</button>
-    </div>
-  `;
+document.getElementById("overlay").onclick=function(){
+  document.getElementById("popup").style.display="none";
+  document.getElementById("overlay").style.display="none";
 }
-
-/* back */
-function back() {
-  location.reload();
-}
-
-/* final forgive */
-function forgive() {
-  document.body.innerHTML = `
-    <div style="margin-top:120px;">
-      <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" width="150">
-      <h1 style="color:#ff4d88;font-family:Pacifico;">YAYYY 💖😭</h1>
-      <p>You forgave your pookie 🧸💕</p>
-      <p>I promise I'll be better 😤👉👈</p>
-      <div style="font-size:30px;">✨💖✨💖✨</div>
-    </div>
-  `;
-}
-
-/* floating hearts */
-setInterval(() => {
-  let heart = document.createElement("img");
-  heart.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png";
-  heart.className = "heart";
-  heart.style.left = Math.random()*100 + "vw";
-  document.body.appendChild(heart);
-
-  setTimeout(()=>heart.remove(),5000);
-}, 300);
-
 </script>
 
 </body>
