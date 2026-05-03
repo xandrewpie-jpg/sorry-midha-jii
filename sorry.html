@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sorry Sister 🧸💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #ffd6e7, #fff0c9);
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* teddy image */
+.teddy {
+  width: 180px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #ff4d88;
+  font-size: 40px;
+}
+
+p {
+  font-size: 18px;
+  color: #444;
+  min-height: 40px;
+}
+
+.container {
+  margin-top: 60px;
+}
+
+/* buttons */
+button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#yes { background: #ff85a2; color: white; }
+#gift { background: #ffd166; }
+#no {
+  background: #999;
+  color: white;
+  position: absolute;
+}
+
+/* floating hearts */
+.heart {
+  position: absolute;
+  width: 20px;
+  opacity: 0.7;
+  animation: rise 5s linear infinite;
+}
+
+@keyframes rise {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container" id="main">
+
+  <img class="teddy" src="https://cdn-icons-png.flaticon.com/512/616/616408.png">
+
+  <h1>Sorry Sister 🧸💖</h1>
+  <p id="text"></p>
+
+  <button id="yes" onclick="forgive()">Forgive me 🥺</button>
+  <button id="gift" onclick="openGift()">Open Gift 🎁</button>
+  <button id="no" onmouseover="run()">No 😤</button>
+
+</div>
+
+<script>
+
+/* typewriter text */
+let msg = "I messed up... and now your pookie teddy is sad 🧸💔";
+let i = 0;
+
+function type() {
+  if (i < msg.length) {
+    document.getElementById("text").innerHTML += msg.charAt(i);
+    i++;
+    setTimeout(type, 50);
+  }
+}
+type();
+
+/* running NO button */
+function run() {
+  let btn = document.getElementById("no");
+  btn.style.top = Math.random()*window.innerHeight + "px";
+  btn.style.left = Math.random()*window.innerWidth + "px";
+}
+
+/* gift twist */
+function openGift() {
+  document.body.innerHTML = `
+    <div style="margin-top:120px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png" width="150">
+      <h1 style="color:#ff4d88;font-family:Pacifico;">Surprise 🧸💖</h1>
+      <p>You are the most special sister ever 😭💕</p>
+      <p>I really didn’t mean to hurt you...</p>
+      <button onclick="back()">Go Back 🥺</button>
+    </div>
+  `;
+}
+
+/* back */
+function back() {
+  location.reload();
+}
+
+/* final forgive */
+function forgive() {
+  document.body.innerHTML = `
+    <div style="margin-top:120px;">
+      <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" width="150">
+      <h1 style="color:#ff4d88;font-family:Pacifico;">YAYYY 💖😭</h1>
+      <p>You forgave your pookie 🧸💕</p>
+      <p>I promise I'll be better 😤👉👈</p>
+      <div style="font-size:30px;">✨💖✨💖✨</div>
+    </div>
+  `;
+}
+
+/* floating hearts */
+setInterval(() => {
+  let heart = document.createElement("img");
+  heart.src = "https://cdn-icons-png.flaticon.com/512/833/833472.png";
+  heart.className = "heart";
+  heart.style.left = Math.random()*100 + "vw";
+  document.body.appendChild(heart);
+
+  setTimeout(()=>heart.remove(),5000);
+}, 300);
+
+</script>
+
+</body>
+</html>
