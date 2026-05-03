@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>I'm Really Sorry 🥺💗</title>
+<title>Sorry Midha 🥺💗</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -12,17 +12,15 @@
   margin:0;
   padding:0;
   box-sizing:border-box;
-  scroll-behavior:smooth;
   font-family:'Quicksand',sans-serif;
 }
 
 body{
   background: linear-gradient(-45deg,#ffd6e8,#e6ccff,#d9f0ff,#fff0f5);
   background-size:400% 400%;
-  animation: gradientBG 12s ease infinite;
+  animation:gradientBG 12s ease infinite;
   overflow-x:hidden;
   text-align:center;
-  color:#444;
 }
 
 @keyframes gradientBG{
@@ -32,204 +30,169 @@ body{
 }
 
 .container{
-  padding:70px 20px;
+  padding:60px 20px;
   max-width:800px;
   margin:auto;
-  animation:fadeIn 2s ease;
 }
 
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
+/* Heading */
 h1{
   font-family:'Pacifico',cursive;
-  font-size:2.8rem;
-  color:#ff66a3;
-  text-shadow:0 0 20px rgba(255,105,180,0.5);
+  font-size:2.5rem;
+  color:#ff4da6;
+  text-shadow:0 0 20px rgba(255,105,180,0.6);
 }
 
-.subtext{
-  margin:15px 0 30px;
-  font-size:1.2rem;
+/* Glowing Badge */
+.badge{
+  margin:15px auto 25px;
+  display:inline-block;
+  padding:10px 25px;
+  background:linear-gradient(45deg,#ff99cc,#cc99ff);
+  color:white;
+  border-radius:50px;
+  font-weight:600;
+  box-shadow:0 0 20px pink;
+  animation:glow 2s infinite alternate;
 }
 
-.main-img{
-  width:230px;
-  border-radius:25px;
-  box-shadow:0 15px 35px rgba(0,0,0,0.15);
-  margin-bottom:30px;
+@keyframes glow{
+  from{box-shadow:0 0 15px pink;}
+  to{box-shadow:0 0 35px #ff66cc;}
+}
+
+/* Heart Frame */
+.heart-frame{
+  width:260px;
+  height:230px;
+  margin:30px auto;
+  position:relative;
+}
+
+.heart-frame img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  clip-path:path("M130 230 C-40 120 60 -20 130 60 C200 -20 300 120 130 230");
+  box-shadow:0 15px 30px rgba(0,0,0,0.2);
   transition:0.4s;
 }
 
-.main-img:hover{
+.heart-frame img:hover{
   transform:scale(1.05);
 }
 
+/* Message Box */
 .message{
-  background:rgba(255,255,255,0.75);
-  padding:30px;
-  border-radius:30px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  margin-bottom:40px;
-  line-height:1.7;
-  font-size:1.1rem;
-}
-
-.section-title{
-  font-family:'Pacifico',cursive;
-  font-size:2rem;
-  color:#cc66ff;
-  margin-bottom:20px;
-}
-
-.points{
-  background:rgba(255,255,255,0.75);
+  background:rgba(255,255,255,0.85);
   padding:25px;
   border-radius:25px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.08);
-  text-align:left;
-  line-height:1.8;
+  margin-top:20px;
+  line-height:1.7;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
-button{
-  margin-top:45px;
-  padding:18px 45px;
-  font-size:1.3rem;
+/* Button */
+#forgiveBtn{
+  margin-top:40px;
+  padding:15px 40px;
+  font-size:1.2rem;
   border:none;
   border-radius:50px;
   background:linear-gradient(45deg,#ff99cc,#cc99ff);
   color:white;
   cursor:pointer;
-  box-shadow:0 8px 25px rgba(0,0,0,0.15);
-  transition:0.4s;
+  position:relative;
+  transition:0.3s;
 }
 
-button:hover{
-  transform:scale(1.15);
-  box-shadow:0 0 25px pink;
+footer{
+  margin-top:60px;
+  font-size:0.9rem;
+  opacity:0.7;
 }
 
 /* Popup */
-.popup, .overlay{
-  display:none;
-}
-
 .overlay{
+  display:none;
   position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
+  top:0;left:0;
+  width:100%;height:100%;
   background:rgba(255,255,255,0.6);
   backdrop-filter:blur(5px);
 }
 
 .popup{
+  display:none;
   position:fixed;
-  top:50%; left:50%;
+  top:50%;left:50%;
   transform:translate(-50%,-50%);
   background:white;
-  padding:35px;
-  border-radius:25px;
+  padding:30px;
+  border-radius:20px;
   box-shadow:0 15px 40px rgba(0,0,0,0.2);
-  z-index:1000;
 }
 
 .popup h2{
-  color:#ff66a3;
-}
-
-/* Floating stickers */
-.sticker{
-  position:fixed;
-  width:90px;
-  opacity:0.9;
-  animation:floatSticker linear infinite;
-}
-
-@keyframes floatSticker{
-  0%{transform:translateY(110vh) rotate(0deg);}
-  100%{transform:translateY(-120vh) rotate(360deg);}
-}
-
-footer{
-  margin:60px 0 20px;
-  font-size:0.9rem;
-  opacity:0.7;
-}
-
-@media(max-width:600px){
-  h1{font-size:2.2rem;}
-  .main-img{width:180px;}
+  color:#ff4da6;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Background Music -->
+<!-- Romantic Music -->
 <audio autoplay loop>
-  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9c9e8b41b4.mp3?filename=romantic-background-112191.mp3" type="audio/mp3">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_9c9e8b41b4.mp3?filename=romantic-background-112191.mp3">
 </audio>
-
-<!-- Floating Stickers -->
-<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=200&q=80"
-class="sticker" style="left:10%; animation-duration:22s;">
-
-<img src="https://images.unsplash.com/photo-1601758064228-5f5c1b0d1b8d?auto=format&fit=crop&w=200&q=80"
-class="sticker" style="left:80%; animation-duration:26s;">
-
-<img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=200&q=80"
-class="sticker" style="left:50%; animation-duration:30s;">
 
 <div class="container">
 
-<h1>I'm Really Sorry 🥺💗</h1>
-<p class="subtext">I didn’t mean to hurt you… please read this once</p>
+<h1>I'm Really Sorry Midha 🥺💗</h1>
 
-<img src="https://images.unsplash.com/photo-1595433562696-44c8b3a8eae6?auto=format&fit=crop&w=400&q=80"
-class="main-img">
+<div class="badge">🎀 Best Sister Ever – Midha 🎀</div>
+
+<div class="heart-frame">
+  <img src="midha.jpg" alt="Midha">
+</div>
 
 <div class="message">
-I know I messed up and I’m really sorry.  
-I didn’t mean to hurt you.  
-You matter a lot to me and I hate seeing you upset because of me.  
-
-When you’re not talking to me properly, everything feels incomplete.  
-Please don’t stay angry… I miss us.  
-I promise I’ll try to be better, for you, for us.  
-
-Just give me one chance to make it right 🥺💗
+Midha, I know I messed up and I’m really sorry.  
+You mean so much to me and I hate when you’re upset because of me.  
+When we don’t talk properly, everything feels incomplete.  
+Please don’t stay angry… I miss us 🥺  
+I promise I’ll try to be better. Just give me one chance 💗
 </div>
 
-<h2 class="section-title">Why You Are Important To Me 💞</h2>
-
-<div class="points">
-• You make my days better without even trying <br>
-• Talking to you feels like comfort <br>
-• You are really special to me <br>
-• I don’t like anything when you’re upset with me <br>
-</div>
-
-<button onclick="showPopup()">Forgive Me? 🧸</button>
-
-</div>
+<button id="forgiveBtn">Forgive Me Midha? 🧸</button>
 
 <footer>
-Made with love, only for you 💗
+Made with love, only for you Midha 💖
 </footer>
+
+</div>
 
 <div class="overlay" id="overlay"></div>
 <div class="popup" id="popup">
-<h2>Yayyy 🥺💖</h2>
-<p>Thank you for forgiving me, you’re the best!</p>
+<h2>Yayyy Midha 🥺💖</h2>
+<p>You forgave me! Best sister forever 🧸💞</p>
 </div>
 
 <script>
-function showPopup(){
+const btn = document.getElementById("forgiveBtn");
+
+btn.addEventListener("mouseover", function(){
+  const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+  const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+  btn.style.position = "absolute";
+  btn.style.left = x + "px";
+  btn.style.top = y + "px";
+});
+
+btn.addEventListener("click", function(){
   document.getElementById("popup").style.display="block";
   document.getElementById("overlay").style.display="block";
-}
+});
 
 document.getElementById("overlay").onclick=function(){
   document.getElementById("popup").style.display="none";
